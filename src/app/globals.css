@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* =======================
+   The "Clean Finance" Theme
+======================= */
+:root {
+  /* Colors - Pure Groww & TradingView Light */
+  --background: #ffffff;
+  --foreground: #1e2124; /* Soft black for readability */
+  
+  /* Muted / Secondary */
+  --muted: #f8f9fb;      /* Very light grey for background panels */
+  --muted-foreground: #767d85;
+
+  /* Market Colors (Groww Shades) */
+  --bullish: #00d09c;    /* Groww Green */
+  --bearish: #eb5757;    /* Groww Red */
+  
+  /* Borders & Dividers */
+  --border: #f0f3f5;     /* Extra light border for "Airy" feel */
+  --divider: #f1f3f4;
+
+  /* Brand Accent */
+  --accent: #00d09c;
+  --ring: rgba(0, 208, 156, 0.15);
+}
+
+/* =======================
+   Tailwind Mapping
+======================= */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-bullish: var(--bullish);
+  --color-bearish: var(--bearish);
+  --color-accent: var(--accent);
+}
+
+/* =======================
+   Clean Base Styles
+======================= */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif; /* Best for SEO & readability */
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =======================
+   CEO-Level Components (Groww Style)
+======================= */
+
+/* Stock Index Card */
+.market-card {
+  @apply border border-gray-100 p-4 rounded-xl transition-all duration-200;
+  background-color: var(--background);
+}
+
+.market-card:hover {
+  @apply border-gray-200 shadow-sm;
+  transform: translateY(-2px);
+}
+
+/* Chart Container */
+.chart-container {
+  @apply bg-white border border-gray-100 rounded-2xl overflow-hidden p-4;
+}
+
+/* AI Sidebar (Iris) */
+.ai-panel {
+  @apply bg-[#f8f9fb] border-l border-gray-100 h-full flex flex-col;
+}
+
+/* Groww Button */
+.btn-groww {
+  @apply bg-[#00d09c] text-white font-bold py-2 px-6 rounded-lg 
+         hover:opacity-90 transition-opacity active:scale-95 text-sm;
+}
+
+/* Minimal Search Bar */
+.search-input {
+  @apply bg-[#f0f3f5] border-none rounded-full px-5 py-2 text-sm 
+         focus:ring-2 focus:ring-[#00d09c]/20 outline-none w-full transition-all;
+}
+
+/* Stock Price Helpers */
+.up { color: var(--bullish); }
+.down { color: var(--bearish); }
